@@ -12,6 +12,8 @@ class Model(models.Model):
                                        blank=False,null=False,
                                        choices=ACTIVE_STATUS,
                                        verbose_name=_("Activity status"))
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True

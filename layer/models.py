@@ -73,6 +73,9 @@ class POI(models.Model):
     longitude = models.DecimalField(max_digits=16,decimal_places=14)
     latitude = models.DecimalField(max_digits=16,decimal_places=14)
 
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
     class Meta:
         verbose_name = _("Point of interest")
         verbose_name_plural = _("Points of interest")
