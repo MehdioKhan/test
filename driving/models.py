@@ -4,9 +4,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Driver(models.Model):
-    first_name = models.CharField(max_length=35,blank=True,null=True,
+    first_name = models.CharField(max_length=35,blank=False,null=False,
                                   verbose_name=_("First name"))
-    last_name = models.CharField(max_length=50,blank=True,null=True,
+    last_name = models.CharField(max_length=50,blank=False,null=False,
                                  verbose_name=_("Last name"))
     nid = models.CharField(max_length=10,blank=True,null=True,
                            verbose_name=_('National code'))
@@ -48,7 +48,7 @@ class Vehicle(Model):
         ('ons',_("On service")),
         ('ofs',_("Out of service"))
     )
-    title = models.CharField(max_length=70,blank=True,null=True,
+    title = models.CharField(max_length=70,blank=False,null=False,
                              verbose_name=_("Title"))
 
     number_plate = models.CharField(max_length=8,blank=False,null=False,
@@ -73,6 +73,7 @@ class Vehicle(Model):
                               on_delete=models.SET_NULL,
                               verbose_name=_("State"))
     service_status = models.CharField(max_length=3,
+                                      blank=False,null=False,
                                       choices=SERVICE_STATUS,
                                       verbose_name=_("Service status"))
 
