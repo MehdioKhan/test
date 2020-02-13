@@ -53,7 +53,11 @@ class Vehicle(Model):
 
     number_plate = models.CharField(max_length=8,blank=False,null=False,
                                     verbose_name=_("Number plate"))
-    # device
+    device = models.ForeignKey(to='device.Hardware',
+                               blank=False,null=False,
+                               related_name='vehicles',
+                               verbose_name=_("Device"),
+                               on_delete=models.CASCADE)
     figure = models.ForeignKey(to='layer.Figure',blank=False,null=True,
                                related_name='vehicles',
                                verbose_name=_("Figure"),
