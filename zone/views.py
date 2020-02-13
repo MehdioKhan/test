@@ -1,14 +1,8 @@
 from rest_framework import viewsets
-from .serializers import StateCreateSerializer,StateListSerializer
+from .serializers import StateSerializer
 from .models import State
 
 
 class StateViewSet(viewsets.ModelViewSet):
+    serializer_class = StateSerializer
     queryset = State.objects.all()
-
-    def get_serializer_class(self):
-        if self.action=='list':
-            return StateListSerializer
-        else:
-            return StateCreateSerializer
-
