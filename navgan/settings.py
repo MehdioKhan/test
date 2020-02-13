@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'company',
     'layer',
     'dashboard',
+    'device',
 ]
 
 MIDDLEWARE = [
